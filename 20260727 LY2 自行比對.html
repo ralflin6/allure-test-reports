@@ -1,0 +1,162 @@
+20260727 <!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <title>多模塊比對報告</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f8fafc; color: #0f172a; }
+    h1, h2 { margin: 0 0 10px; }
+    .header-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .platform-pill { display: inline-block; background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin: 10px 0; }
+    .ok { color: #15803d; font-weight: bold; }
+    .bad { color: #b91c1c; font-weight: bold; }
+    .skip { color: #a16207; font-weight: bold; }
+    .skip-card { background: #fffbeb; border-color: #fde68a; }
+    .skip-row td { background: #fffbeb; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; font-size: 13px; }
+    th { background: #f1f5f9; }
+    details { margin: 10px 0; }
+    ul { margin: 0; padding-left: 20px; max-height: 260px; overflow: auto; }
+    .meta td:first-child { width: 180px; color: #334155; }
+    .diff-cell { background: #fee2e2; color: #991b1b; font-weight: 600; }
+    .diff-row td { background: #fff1f2; }
+    .tab-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tab-btn { border: 1px solid #cbd5e1; background: #fff; color: #334155; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+    .tab-btn.active { background: #0ea5e9; color: #fff; border-color: #0284c7; }
+    .module-panel { display: none; }
+    .module-panel.active { display: block; }
+    .ov-row { cursor: pointer; }
+    .ov-row:hover td { background: #eff6ff; }
+    .filter-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .filter-btn { border: 1px solid #cbd5e1; background: #fff; color: #334155; padding: 6px 12px; border-radius: 999px; cursor: pointer; font-size: 13px; }
+    .filter-btn.active { background: #0ea5e9; color: #fff; border-color: #0284c7; }
+  </style>
+</head>
+<body>
+  <div class="header-row">
+    <h1>多模塊比對報告</h1>
+    <span class="platform-pill">平台：None</span>
+  </div>
+  <div class="card">
+    <table class="meta">
+      <tr><td>比對結果</td><td>通過（無 FAIL；1 項略過待人工確認）</td></tr><tr><td>備份資料檔案</td><td>C:\Revice_Code\data_transfer_project\data_collection\agentStatisticsData\agentStatisticsData_LY_HCI_PC_2026-07-22_2026-07-22_20260723_161701.json</td></tr><tr><td>平台</td><td>None</td></tr><tr><td>日期區間</td><td>2026-07-22 ~ 2026-07-22</td></tr><tr><td>比對時間</td><td>2026-07-27 10:13:53</td></tr><tr><td>JSON 報告</td><td>C:\Revice_Code\data_transfer_project\data_compare_reports\compare_20260727_101353.json</td></tr>
+    </table>
+    <p class="skip">
+      所有模塊比對無 FAIL；1 項（角色管理權限）列為略過，需人工確認，不計入 FAIL。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>模塊總覽</h2>
+    <div class="filter-wrap">
+      <button class="filter-btn" data-filter="all" onclick="filterOverview('all', this)">全部（20）</button>
+      <button class="filter-btn" data-filter="bad" onclick="filterOverview('bad', this)">不一致（0）</button>
+      <button class="filter-btn" data-filter="skip" onclick="filterOverview('skip', this)">略過（1）</button>
+      <button class="filter-btn active" data-filter="problem" onclick="filterOverview('problem', this)">有問題（1）</button>
+      <button class="filter-btn" data-filter="ok" onclick="filterOverview('ok', this)">一致（19）</button>
+    </div>
+    <table>
+      <tr><th>模塊</th><th>模塊 Key</th><th>狀態</th><th>逐列差異數</th><th>缺少</th><th>多出</th><th>略過</th></tr>
+      <tr class="ov-row" data-status="skip" onclick="goToModule('module-roleManage')"><td>角色管理</td><td>roleManage</td><td class="skip">略過</td><td>0</td><td>0</td><td>0</td><td>22</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-lineRoute')"><td>線路設置</td><td>lineRoute</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentMainSubRoute')"><td>代理主副線路</td><td>agentMainSubRoute</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentRoute')"><td>代理線路</td><td>agentRoute</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-gameInfo')"><td>遊戲管理</td><td>gameInfo</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-gameRoom')"><td>遊戲管理-遊戲房間</td><td>gameRoom</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-gameRoomStatus')"><td>遊戲管理-遊戲房間狀態</td><td>gameRoomStatus</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentGameInfo')"><td>代理遊戲管理</td><td>agentGameInfo</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentGameRoomStatus')"><td>代理遊戲管理-遊戲房間狀態</td><td>agentGameRoomStatus</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentAccount')"><td>代理帳號</td><td>agentAccount</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentAccountEdit')"><td>代理帳號-編輯</td><td>agentAccountEdit</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-agentAccountKey')"><td>代理帳號-查看秘鑰</td><td>agentAccountKey</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-memberAccountInfo')"><td>會員帳號-信息</td><td>memberAccountInfo</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-memberMoneyChange')"><td>會員點數明細</td><td>memberMoneyChange</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-proxyMoneyChange')"><td>代理點數明細</td><td>proxyMoneyChange</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-winLoseReport')"><td>盈利報表</td><td>winLoseReport</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-proxyStatis')"><td>代理點數統計</td><td>proxyStatis</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-subUser')"><td>subUser</td><td>subUser</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-reduceScoreBlackList')"><td>reduceScoreBlackList</td><td>reduceScoreBlackList</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr class="ov-row" data-status="ok" onclick="goToModule('module-deliveryExchangeRate')"><td>交收匯率</td><td>deliveryExchangeRate</td><td class="ok">一致</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    </table>
+  </div>
+
+  <div class="card" id="module-switch">
+    <h2>模塊切換</h2>
+    <div class="tab-wrap"><button class="tab-btn active" data-target="module-roleManage" data-status="skip" onclick="switchModule('module-roleManage', this)">角色管理</button></div>
+  </div>
+
+  
+
+  <section id="module-roleManage" class="module-panel active">
+    <div class="card">
+      <h2>角色管理｜Summary（備份資料 vs 線上）</h2>
+      <table>
+        <tr><th>欄位</th><th>備份資料</th><th>線上</th></tr>
+        <tr><td>角色筆數 (role_count)</td><td class="">24</td><td class="">44</td></tr><tr><td>總筆數 (total)</td><td class="">24</td><td class="">44</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Summary 差異</h2>
+      <p class="ok">無 summary 差異</p>
+    </div>
+
+    <div class="card">
+      <h2>缺少 / 多出 row_key</h2>
+      <details open>
+        <summary>線上缺少（0）</summary>
+        <ul></ul>
+      </details>
+      <details open>
+        <summary>線上多出（0）</summary>
+        <ul></ul>
+      </details>
+    </div>
+    <div class="card skip-card"><h2 class="skip">略過 / 需人工確認（不計入 FAIL）</h2><h3>名稱非唯一（17）<span style="font-weight:400;color:#92400e">：B 站同名 &gt;1 筆，多為另一台匯入的同名角色</span></h3><p style="margin:6px 0;font-size:13px">追蹤單：<a href="https://pmo-jira.qyrc452.com/browse/IT-17882" target="_blank" rel="noopener">IT-17882</a></p><ul><li>商務專員</li><li>客服培训用</li><li>技術主管</li><li>普通客服</li><li>普通财务</li><li>研發技術</li><li>简单财务</li><li>線上技術</li><li>老板专用</li><li>运维值班</li><li>運營專員</li><li>風控專員</li><li>風控新人</li><li>风控组长</li><li>高级客服</li><li>高级财务</li><li>高级风控</li></ul><h3>略過（3）<span style="font-weight:400;color:#92400e">：抓取快照後才出現，非漏搬</span></h3><table><tr><th>row_key</th><th>時間</th><th>略過原因</th></tr><tr class='skip-row'><td>主管专用｜id 5280</td><td>-</td><td>另一台匯入的角色（快照無此名稱）</td></tr><tr class='skip-row'><td>體育｜id 5371</td><td>-</td><td>另一台匯入的角色（快照無此名稱）</td></tr><tr class='skip-row'><td>高级测试｜id 24</td><td>-</td><td>另一台匯入的角色（快照無此名稱）</td></tr></table></div>
+
+    <div class="card skip-card">
+      <h2 class="skip">差異角色清單（略過 2）</h2>
+      <p style="margin:6px 0;font-size:13px;color:#92400e">略過原因：抓取快照後，RD 另將角色權限單獨同步至線上 LY1 / LY2 一次，此 2 筆權限差為該次同步造成，非漏搬，不計入 FAIL。追蹤單：<a href="https://pmo-jira.qyrc452.com/browse/IT-17882" target="_blank" rel="noopener">IT-17882</a></p>
+      <table><tr><th>角色 鍵</th><th>差異欄位</th></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·addNew (element:450), 權限·changeRiskLevel (element:458), 權限·cslayOrderDetail (page:127), 權限·delete (element:453), 權限·easternSearch (element:390), 權限·edit (element:382), 權限·edit (element:452), 權限·export (element:384), 權限·export (element:386), 權限·export (element:388), 權限·export (element:389), 權限·export (element:421), 權限·export (element:455), 權限·export (element:457), 權限·kxSportOrderDetail (page:131), 權限·kySport2BetInformation (page:125), 權限·kySportRoute (page:124), 權限·list (element:381), 權限·list (element:383), 權限·list (element:385), 權限·list (element:387), 權限·list (element:391), 權限·list (element:416), 權限·list (element:451), 權限·list (element:454), 權限·list (element:456), 權限·redCatOrderDetail (page:126), 權限·riskLevelInquiry (page:145), 權限·riskLevelLog (page:144), 權限·riskLevelManagement (page:143), 權限·sboproxystatis (page:128), 權限·sportsRelated (menu:12)</td></tr><tr class='skip-row'><td>高级财务｜id 200028</td><td>權限·percentageTaken (element:434), 權限·threshold (element:424)</td></tr></table>
+    </div>
+
+    <div class="card skip-card">
+      <h2 class="skip">逐列差異（略過 2）</h2>
+      <p style="margin:6px 0;font-size:13px;color:#92400e">略過原因：抓取快照後，RD 另將角色權限單獨同步至線上 LY1 / LY2 一次，此權限差為該次同步造成，非漏搬，不計入 FAIL。追蹤單：<a href="https://pmo-jira.qyrc452.com/browse/IT-17882" target="_blank" rel="noopener">IT-17882</a></p>
+      <table><tr><th>row_key</th><th>欄位</th><th>備份資料</th><th>線上</th></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:381)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·edit (element:382)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:383)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:384)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:385)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:386)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:387)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:388)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:389)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·easternSearch (element:390)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:391)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:416)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:421)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·addNew (element:450)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:451)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·edit (element:452)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·delete (element:453)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:454)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:455)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·list (element:456)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·export (element:457)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·changeRiskLevel (element:458)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·sportsRelated (menu:12)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·kySportRoute (page:124)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·kySport2BetInformation (page:125)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·redCatOrderDetail (page:126)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·cslayOrderDetail (page:127)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·sboproxystatis (page:128)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·kxSportOrderDetail (page:131)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·riskLevelManagement (page:143)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·riskLevelLog (page:144)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>普通测试｜id 200023</td><td>權限·riskLevelInquiry (page:145)</td><td>1</td><td>0</td></tr><tr class='skip-row'><td>高级财务｜id 200028</td><td>權限·threshold (element:424)</td><td>0</td><td>1</td></tr><tr class='skip-row'><td>高级财务｜id 200028</td><td>權限·percentageTaken (element:434)</td><td>0</td><td>1</td></tr></table>
+    </div>
+  </section>
+
+
+  <script>
+    function switchModule(targetId, btn) {
+      document.querySelectorAll('.module-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+    function goToModule(targetId) {
+      const btn = document.querySelector('.tab-btn[data-target="' + targetId + '"]');
+      if (!btn) return;  // 一致模塊無詳細頁，不跳轉
+      switchModule(targetId, btn);
+      const anchor = document.getElementById('module-switch');
+      if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function matchFilter(status, rowStatus) {
+      if (status === 'all') return true;
+      if (status === 'problem') return rowStatus === 'bad' || rowStatus === 'skip';
+      return rowStatus === status;
+    }
+    function filterOverview(status, btn) {
+      document.querySelectorAll('.ov-row').forEach(row => {
+        row.style.display = matchFilter(status, row.dataset.status) ? '' : 'none';
+      });
+      // 模塊切換頁籤與詳細面板同步依狀態篩選（無符合者整區隱藏）
+      let firstVisible = null;
+      document.querySelectorAll('.tab-btn').forEach(tab => {
+        const show = matchFilter(status, tab.dataset.status);
+        tab.style.display = show ? '' : 'none';
+        if (show && !firstVisible) firstVisible = tab;
+      });
+      const wrap = document.getElementById('module-switch');
+      if (firstVisible) {
+        if (wrap) wrap.style.display = '';
+        switchModule(firstVisible.dataset.target, firstVisible);
+      } else {
+        if (wrap) wrap.style.display = 'none';
+        document.querySelectorAll('.module-panel').forEach(el => el.classList.remove('active'));
+      }
+      document.querySelectorAll('.filter-btn').forEach(el => el.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const def = document.querySelector('.filter-btn[data-filter="problem"]');
+      filterOverview('problem', def);
+    });
+  </script>
+</body>
+</html>
