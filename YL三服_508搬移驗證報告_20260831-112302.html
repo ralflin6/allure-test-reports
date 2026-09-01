@@ -1,0 +1,187 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YL三服_508搬移驗證報告</title><style>
+:root{--bd:#e3e6ea;--mut:#6b7280;--blue:#2563eb;--red:#dc2626;--green:#16a34a;--amber:#b45309;--bg:#f7f8fa}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;margin:0;background:var(--bg);color:#1f2937}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:26px;margin:0 0 6px;display:inline-block}
+h2{font-size:20px;margin:28px 0 12px}
+.badge{display:inline-block;background:#eaf2ff;color:var(--blue);border:1px solid #cfe0ff;border-radius:999px;padding:4px 12px;font-size:13px;margin-left:10px;vertical-align:middle}
+.card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:18px 20px;margin:16px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.kv td{padding:11px 14px;border:1px solid var(--bd)}
+.kv td:first-child{width:150px;background:#fafbfc;color:var(--mut);font-weight:600}
+.mono{font-family:"Cascadia Code",Consolas,monospace;font-size:13px;word-break:break-all}
+.banner{font-weight:700;font-size:15px;margin:10px 0 0}
+.ok{color:var(--green)} .bad{color:var(--red)} .muted{color:var(--mut)}
+.grid{width:100%;border-collapse:collapse}
+.grid th,.grid td{padding:10px 13px;border:1px solid var(--bd);text-align:left;vertical-align:top}
+.grid th{background:#fafbfc;color:var(--mut);font-weight:600;font-size:13px}
+.grid td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.st-bad{color:var(--red);font-weight:700}.st-ok{color:var(--green);font-weight:700}.st-skip{color:var(--mut);font-weight:700}
+.st-warn{color:var(--amber);font-weight:700}
+.warnbox{border:1px solid #fde68a;background:#fffbeb;border-radius:8px;padding:12px 16px;margin:8px 0;font-size:13px;color:#92400e}
+summary .badge-w{background:#fef3c7;color:var(--amber);border-radius:999px;padding:1px 10px;font-size:12px;font-weight:700}
+.jtabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 20px;border-bottom:2px solid var(--bd);padding-bottom:14px}
+.jtab{border:1px solid var(--bd);background:#fff;border-radius:12px;padding:12px 22px;font-size:16px;cursor:pointer;color:#374151;font-weight:700;display:flex;flex-direction:column;line-height:1.35;min-width:150px}
+.jtab.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.25)}
+.jtab .jcnt{font-size:13px;font-weight:600;opacity:.9;font-variant-numeric:tabular-nums;margin-top:2px}
+.job.hidden{display:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tab{border:1px solid var(--bd);background:#fff;border-radius:10px 10px 0 0;padding:9px 18px;font-size:14px;cursor:pointer;color:#374151;font-weight:600}
+.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.tab .cnt{font-size:12px;opacity:.85;margin-left:6px}
+.panel.hidden{display:none}
+details.fld{border:1px solid var(--bd);border-radius:8px;margin:8px 0;background:#fff}
+details.fld>summary{cursor:pointer;padding:10px 14px;font-size:14px;list-style:none;display:flex;align-items:center;gap:10px}
+details.fld>summary::-webkit-details-marker{display:none}
+details.fld>summary::before{content:"▶";font-size:10px;color:var(--mut);transition:.15s}
+details.fld[open]>summary::before{transform:rotate(90deg)}
+summary .fname{font-family:"Cascadia Code",Consolas,monospace;font-weight:700}
+summary .badge-n{background:#fde8e8;color:var(--red);border-radius:999px;padding:1px 10px;font-size:12px;font-weight:700}
+.scroll{max-height:440px;overflow:auto;border-top:1px solid var(--bd)}
+.api{color:var(--blue)} .db{color:#b45309}
+.pill{display:inline-block;background:#f3f4f6;border-radius:6px;padding:2px 8px;margin:2px;font-size:12px;font-family:"Cascadia Code",Consolas,monospace}
+.sub{color:var(--mut);font-size:13px;margin:2px 0 12px}
+.rules{border:1px solid var(--bd);border-radius:8px;background:#fafbfc;padding:12px 16px;margin:8px 0;font-size:13px;color:#374151}
+.rules ol{margin:8px 0 0;padding-left:22px}
+.rules li{margin:4px 0;line-height:1.6}
+</style></head>
+<body><div class="wrap">
+<div><h1>搬移驗證報告</h1><span class="badge">YL三服_508搬移驗證報告</span>
+<span class="badge">產生 2026-08-31 11:23:02</span></div>
+<div class="jtabs"><button class="jtab active" onclick="jobtab('YL_Z',this)">🟢 YL_Z<span class="jcnt">20,974 對 20,878</span></button><button class="jtab" onclick="jobtab('YL_DF',this)">🟡 YL_DF<span class="jcnt">26,100 對 26,033</span></button><button class="jtab" onclick="jobtab('YL_34',this)">🟢 YL_34<span class="jcnt">23,329 對 23,230</span></button></div>
+<div id="job-YL_Z" class="job"><div class="card"><table class="kv"><tbody><tr><td>比對結果</td><td>全部通過</td></tr>
+<tr><td>Job / 平台</td><td>YL_Z（run 20260827-1512）</td></tr>
+<tr><td>源 DB</td><td><span class="mono">34.92.131.40</span>（快照 2026-08-27 15:12:50）</td></tr>
+<tr><td>目的地後台</td><td><span class="mono">YL_HCI_PC</span>（抓取 2026-08-27 16:15:00）</td></tr>
+<tr><td>會員範圍</td><td>代理 [60040, 60025, 110031] 共 20000 筆</td></tr>
+<tr><td>語意</td><td>只在DB=搬移缺漏；逐欄不符=搬移後被改；子帳號 only_db 為權限預期</td></tr></tbody></table><p class="banner ok">全部通過 ✅</p></div><h2>模塊總覽</h2><div class="card"><table class="grid"><thead><tr><th>模塊</th><th>Key</th><th>狀態</th><th>逐列差異數</th><th>只在DB</th><th>只在後台</th><th>Skip</th></tr></thead><tbody><tr><td>代理帳號</td><td class="mono">proxy</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">27</td></tr><tr><td>會員帳號</td><td class="mono">member</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr><td>子帳號</td><td class="mono">user</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">89</td></tr></tbody></table></div><h2>差異明細（分頁）</h2><div class="tabs"><button class="tab active" onclick="tab('YL_Z','proxy',this)">🟢 代理帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_Z','member',this)">🟢 會員帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_Z','user',this)">🟢 子帳號<span class="cnt">(0 差異)</span></button></div><div id="panel-YL_Z-proxy" class="panel">
+<p class="sub">KYDB_NEW.agent 全部代理（含下級 uid&lt;&gt;0）逐 id 比對<br>配對鍵 <b>channelId</b>　排除欄位 ['lastLoginTime', 'memberCount']　筆數 DB 524 / 後台 517　共同 497　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 27</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','proxy',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','proxy',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+<details class="fld"><summary><span class="fname">Skip 跳過（不移植規則命中，不比對）</span><span class="badge-n">27 筆</span></summary><div class="scroll" style="padding:10px 14px"><span class="pill">60027</span><span class="pill">60098</span><span class="pill">60542</span><span class="pill">60562</span><span class="pill">60563</span><span class="pill">60564</span><span class="pill">60622</span><span class="pill">60666</span><span class="pill">60668</span><span class="pill">60751</span><span class="pill">61006</span><span class="pill">61010</span><span class="pill">61093</span><span class="pill">61231</span><span class="pill">61249</span><span class="pill">61274</span><span class="pill">61290</span><span class="pill">61320</span><span class="pill">61321</span><span class="pill">61322</span><span class="pill">62243</span><span class="pill">110004</span><span class="pill">110005</span><span class="pill">110010</span><span class="pill">110013</span><span class="pill">110387</span><span class="pill">110479</span></div></details>
+
+</div><div id="panel-YL_Z-member" class="panel hidden">
+<p class="sub">目標代理會員，逐 account 比對（每代理依 createdate 取最新樣本）<br>配對鍵 <b>account</b>　排除欄位 ['gameName', 'isOnline', 'lastLoginTime']　筆數 DB 20,000 / 後台 20,000　共同 20,000　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 0</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','member',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','member',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+
+
+</div><div id="panel-YL_Z-user" class="panel hidden">
+<p class="sub">源快照(build 凍結)↔508 DB 直比，複合鍵 (agentId, account)；Skip=撞號代理或封停代理<br>配對鍵 <b>agentId+account</b>　排除欄位 ['id', 'uId', 'roleId', 'lastLoginTime', 'twoFactorAuthStatus', 'is2faKeyExists', 'roleName']　筆數 DB 450 / 後台 6,883　共同 361　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 89</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','user',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_Z','user',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+<details class="fld"><summary><span class="fname">Skip 跳過（不移植規則命中，不比對）</span><span class="badge-n">89 筆</span></summary><div class="scroll" style="padding:10px 14px"><span class="pill">99fkkyqp@60666</span><span class="pill">99shenhea@60666</span><span class="pill">Arina</span><span class="pill">Bryan</span><span class="pill">Combo</span><span class="pill">Davis</span><span class="pill">FFgamejkb@60666</span><span class="pill">FFtyc@60666</span><span class="pill">Gxkaiyuanqipai@60666</span><span class="pill">Han</span><span class="pill">Jackson</span><span class="pill">Jimmy</span><span class="pill">Juju</span><span class="pill">Lance</span><span class="pill">Lauren</span><span class="pill">Rossi</span><span class="pill">Sake</span><span class="pill">Sally</span><span class="pill">TJ</span><span class="pill">Xian</span><span class="pill">YLMFDFMicky</span><span class="pill">alvis2</span><span class="pill">amhghg@60666</span><span class="pill">andy+-from@60542</span><span class="pill">barry</span><span class="pill">bg_cs01@60027</span><span class="pill">bg_cw01@60027</span><span class="pill">bg_cw02@60027</span><span class="pill">bgapi@60027</span><span class="pill">bgcs001@110387</span><span class="pill">bgcw001@110387</span><span class="pill">chris</span><span class="pill">comman</span><span class="pill">cstraining01</span><span class="pill">cstraining02</span><span class="pill">cstraining03</span><span class="pill">depp</span><span class="pill">edward6</span><span class="pill">emily</span><span class="pill">ffshenhe@60666</span><span class="pill">google</span><span class="pill">guanli</span><span class="pill">gy1shiyong@60666</span><span class="pill">happen</span><span class="pill">hf_admin@60027</span><span class="pill">hwfinance@60098</span><span class="pill">joanne</span><span class="pill">jolin</span><span class="pill">jskyqp@60666</span><span class="pill">kairo</span><span class="pill">kaku</span><span class="pill">knox</span><span class="pill">kowei</span><span class="pill">ky0000sh@60666</span><span class="pill">leon</span><span class="pill">ling</span><span class="pill">malay</span><span class="pill">masaki</span><span class="pill">pika</span><span class="pill">ras</span><span class="pill">risk1</span><span class="pill">risk2</span><span class="pill">ryan</span><span class="pill">sander</span><span class="pill">scott</span><span class="pill">service</span><span class="pill">service2</span><span class="pill">service3</span><span class="pill">service4</span><span class="pill">service5</span><span class="pill">service6</span><span class="pill">servicescore</span><span class="pill">shou</span><span class="pill">simon01</span><span class="pill">test1@60542</span><span class="pill">tommy</span><span class="pill">trevor</span><span class="pill">trevor2</span><span class="pill">van</span><span class="pill">vc_test@60027</span><span class="pill">weily</span><span class="pill">xedfksh@60666</span><span class="pill">xedjkbfk@60666</span><span class="pill">yl_will</span><span class="pill">yuri</span><span class="pill">zcwgame@60666</span><span class="pill">zhiban</span><span class="pill">zhiban2</span><span class="pill">zhiban3</span></div></details>
+<div class="rules"><b>不移植規則</b>（配對前先判，命中即歸 Skip，不列為缺漏）<ol><li><b>agentId = 0</b>：系統層／平台管理帳號，不屬於任何代理，不隨代理搬移</li><li><b>roleId 為 1 或 4</b>：管理员、代理角色這兩種身分不移植</li><li><b>掛在不搬移清單代理底下</b>：代理本身就不搬（代理不搬移清單），其子帳號一併不搬</li><li><b>來源代理已封停且未配對到</b>：代理在來源即為停用狀態，508 找不到屬預期缺席</li></ol></div>
+</div></div><div id="job-YL_DF" class="job hidden"><div class="card"><table class="kv"><tbody><tr><td>比對結果</td><td>待處理 2</td></tr>
+<tr><td>Job / 平台</td><td>YL_DF（run 20260827-1512）</td></tr>
+<tr><td>源 DB</td><td><span class="mono">34.150.69.224</span>（快照 2026-08-27 15:13:19）</td></tr>
+<tr><td>目的地後台</td><td><span class="mono">YL_HCI_PC</span>（抓取 2026-08-27 16:57:04）</td></tr>
+<tr><td>會員範圍</td><td>代理 [600994, 602975, 600996] 共 20000 筆</td></tr>
+<tr><td>語意</td><td>只在DB=搬移缺漏；逐欄不符=搬移後被改；子帳號 only_db 為權限預期</td></tr></tbody></table><p class="banner" style="color:var(--amber)">通過，另有 2 筆待處理 ⚠</p></div><h2>模塊總覽</h2><div class="card"><table class="grid"><thead><tr><th>模塊</th><th>Key</th><th>狀態</th><th>逐列差異數</th><th>只在DB</th><th>只在後台</th><th>Skip</th></tr></thead><tbody><tr><td>代理帳號</td><td class="mono">proxy</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr><td>會員帳號</td><td class="mono">member</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr><td>子帳號</td><td class="mono">user</td><td class="st-warn">待處理</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">65</td></tr></tbody></table></div><h2>差異明細（分頁）</h2><div class="tabs"><button class="tab active" onclick="tab('YL_DF','proxy',this)">🟢 代理帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_DF','member',this)">🟢 會員帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_DF','user',this)">🟡 子帳號<span class="cnt">(0 差異)</span></button></div><div id="panel-YL_DF-proxy" class="panel">
+<p class="sub">KYDB_NEW.agent 全部代理（含下級 uid&lt;&gt;0）逐 id 比對<br>配對鍵 <b>channelId</b>　排除欄位 ['lastLoginTime', 'memberCount']　筆數 DB 3,671 / 後台 3,671　共同 3,671　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 0</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','proxy',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','proxy',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+
+
+</div><div id="panel-YL_DF-member" class="panel hidden">
+<p class="sub">目標代理會員，逐 account 比對（每代理依 createdate 取最新樣本）<br>配對鍵 <b>account</b>　排除欄位 ['gameName', 'isOnline', 'lastLoginTime']　筆數 DB 20,000 / 後台 20,000　共同 20,000　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 0</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','member',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','member',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+
+
+</div><div id="panel-YL_DF-user" class="panel hidden">
+<p class="sub">源快照(build 凍結)↔508 DB 直比，複合鍵 (agentId, account)；Skip=撞號代理或封停代理<br>配對鍵 <b>agentId+account</b>　排除欄位 ['id', 'uId', 'roleId', 'lastLoginTime', 'twoFactorAuthStatus', 'is2faKeyExists', 'roleName']　筆數 DB 2,429 / 後台 6,883　共同 2,362　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 65</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','user',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_DF','user',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+<div class="warnbox"><b>⚠ 待處理 2 筆</b>（本次驗證先略過，正式搬移時直接處理）<div style="margin-top:8px"><span class="pill">o10901@600388（508 已有同名 o10901@500096，本筆未依規則改名搬入）</span><span class="pill">o11801 @600381（508 已有同名 o11801@500089，本筆未依規則改名搬入）</span></div></div>
+
+
+
+
+<details class="fld"><summary><span class="fname">Skip 跳過（不移植規則命中，不比對）</span><span class="badge-n">65 筆</span></summary><div class="scroll" style="padding:10px 14px"><span class="pill">Arina</span><span class="pill">Bryan</span><span class="pill">Combo</span><span class="pill">Davis</span><span class="pill">Han</span><span class="pill">Hant</span><span class="pill">Jackson</span><span class="pill">Juju</span><span class="pill">Lance</span><span class="pill">Lauren</span><span class="pill">Rossi</span><span class="pill">Sake</span><span class="pill">Sally</span><span class="pill">TJ</span><span class="pill">Xian</span><span class="pill">YLMFDFMicky</span><span class="pill">barry</span><span class="pill">bu001</span><span class="pill">chris</span><span class="pill">comman</span><span class="pill">cstraining01</span><span class="pill">cstraining02</span><span class="pill">cstraining03</span><span class="pill">depp</span><span class="pill">edward</span><span class="pill">elon</span><span class="pill">emily</span><span class="pill">google</span><span class="pill">guanli</span><span class="pill">happen1</span><span class="pill">joanne</span><span class="pill">jolin</span><span class="pill">kairo</span><span class="pill">kaku</span><span class="pill">knox</span><span class="pill">kowei</span><span class="pill">leon</span><span class="pill">ling</span><span class="pill">malay</span><span class="pill">masaki</span><span class="pill">pika</span><span class="pill">ras</span><span class="pill">risk1</span><span class="pill">risk2</span><span class="pill">ryan</span><span class="pill">sander</span><span class="pill">scott</span><span class="pill">service1</span><span class="pill">service2</span><span class="pill">service3</span><span class="pill">service4</span><span class="pill">service5</span><span class="pill">service6</span><span class="pill">servicescore</span><span class="pill">shou</span><span class="pill">simon01</span><span class="pill">tommy</span><span class="pill">trevor</span><span class="pill">van</span><span class="pill">weily</span><span class="pill">yl_will</span><span class="pill">yuri</span><span class="pill">zhiban</span><span class="pill">zhiban2</span><span class="pill">zhiban3</span></div></details>
+<div class="rules"><b>不移植規則</b>（配對前先判，命中即歸 Skip，不列為缺漏）<ol><li><b>agentId = 0</b>：系統層／平台管理帳號，不屬於任何代理，不隨代理搬移</li><li><b>roleId 為 1 或 4</b>：管理员、代理角色這兩種身分不移植</li><li><b>掛在不搬移清單代理底下</b>：代理本身就不搬（代理不搬移清單），其子帳號一併不搬</li><li><b>來源代理已封停且未配對到</b>：代理在來源即為停用狀態，508 找不到屬預期缺席</li></ol></div>
+</div></div><div id="job-YL_34" class="job hidden"><div class="card"><table class="kv"><tbody><tr><td>比對結果</td><td>全部通過</td></tr>
+<tr><td>Job / 平台</td><td>YL_34（run 20260827-1513）</td></tr>
+<tr><td>源 DB</td><td><span class="mono">34.92.243.46</span>（快照 2026-08-27 15:13:39）</td></tr>
+<tr><td>目的地後台</td><td><span class="mono">YL_HCI_PC</span>（抓取 2026-08-27 17:34:36）</td></tr>
+<tr><td>會員範圍</td><td>代理 [500903, 50035, 60037] 共 20000 筆</td></tr>
+<tr><td>語意</td><td>只在DB=搬移缺漏；逐欄不符=搬移後被改；子帳號 only_db 為權限預期</td></tr></tbody></table><p class="banner ok">全部通過 ✅</p></div><h2>模塊總覽</h2><div class="card"><table class="grid"><thead><tr><th>模塊</th><th>Key</th><th>狀態</th><th>逐列差異數</th><th>只在DB</th><th>只在後台</th><th>Skip</th></tr></thead><tbody><tr><td>代理帳號</td><td class="mono">proxy</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">13</td></tr><tr><td>會員帳號</td><td class="mono">member</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr><td>子帳號</td><td class="mono">user</td><td class="st-ok">一致</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">98</td></tr></tbody></table></div><h2>差異明細（分頁）</h2><div class="tabs"><button class="tab active" onclick="tab('YL_34','proxy',this)">🟢 代理帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_34','member',this)">🟢 會員帳號<span class="cnt">(0 差異)</span></button><button class="tab" onclick="tab('YL_34','user',this)">🟢 子帳號<span class="cnt">(0 差異)</span></button></div><div id="panel-YL_34-proxy" class="panel">
+<p class="sub">KYDB_NEW.agent 全部代理（含下級 uid&lt;&gt;0）逐 id 比對<br>配對鍵 <b>channelId</b>　排除欄位 ['lastLoginTime', 'memberCount']　筆數 DB 1,723 / 後台 1,722　共同 1,710　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 13</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','proxy',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','proxy',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+<details class="fld"><summary><span class="fname">Skip 跳過（不移植規則命中，不比對）</span><span class="badge-n">13 筆</span></summary><div class="scroll" style="padding:10px 14px"><span class="pill">60592</span><span class="pill">60643</span><span class="pill">60823</span><span class="pill">61216</span><span class="pill">61243</span><span class="pill">61244</span><span class="pill">61337</span><span class="pill">61754</span><span class="pill">61756</span><span class="pill">61757</span><span class="pill">61787</span><span class="pill">62112</span><span class="pill">62299</span></div></details>
+
+</div><div id="panel-YL_34-member" class="panel hidden">
+<p class="sub">目標代理會員，逐 account 比對（每代理依 createdate 取最新樣本）<br>配對鍵 <b>account</b>　排除欄位 ['gameName', 'isOnline', 'lastLoginTime']　筆數 DB 20,000 / 後台 20,000　共同 20,000　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 0</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','member',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','member',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+
+
+</div><div id="panel-YL_34-user" class="panel hidden">
+<p class="sub">源快照(build 凍結)↔508 DB 直比，複合鍵 (agentId, account)；Skip=撞號代理或封停代理<br>配對鍵 <b>agentId+account</b>　排除欄位 ['id', 'uId', 'roleId', 'lastLoginTime', 'twoFactorAuthStatus', 'is2faKeyExists', 'roleName']　筆數 DB 1,606 / 後台 6,883　共同 1,508　<b class="bad">逐列差異 0</b>　只在DB 0　只在後台 0　<b class="muted">Skip 98</b></p>
+<p><button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','user',true)">全部展開</button> <button class="pill" style="cursor:pointer;border:1px solid #ccc" onclick="expandAll('YL_34','user',false)">全部收合</button></p>
+<p class="ok">共同筆數逐欄全部一致 ✅</p>
+
+
+
+
+
+<details class="fld"><summary><span class="fname">Skip 跳過（不移植規則命中，不比對）</span><span class="badge-n">98 筆</span></summary><div class="scroll" style="padding:10px 14px"><span class="pill">2828c@61787</span><span class="pill">49c@61787</span><span class="pill">5k@61787</span><span class="pill">6768c@61787</span><span class="pill">7755c@61787</span><span class="pill">8818c@61787</span><span class="pill">8gc@61787</span><span class="pill">8y@61787</span><span class="pill">929c@61787</span><span class="pill">98c98c@61787</span><span class="pill">98c@61787</span><span class="pill">9bc@61787</span><span class="pill">Arina</span><span class="pill">Bryan</span><span class="pill">C668@61787</span><span class="pill">Combo</span><span class="pill">Davis</span><span class="pill">Han</span><span class="pill">Hant</span><span class="pill">Jackson</span><span class="pill">Juju</span><span class="pill">Lance</span><span class="pill">Lauren</span><span class="pill">PK001@60643</span><span class="pill">PK002@60643</span><span class="pill">Rossi</span><span class="pill">Sake</span><span class="pill">Sally</span><span class="pill">TJ</span><span class="pill">Xian</span><span class="pill">YLMFDFMicky</span><span class="pill">alvis2</span><span class="pill">barry</span><span class="pill">byqpsh@60823</span><span class="pill">c168@61787</span><span class="pill">chris</span><span class="pill">comman</span><span class="pill">cstraining01</span><span class="pill">cstraining02</span><span class="pill">cstraining03</span><span class="pill">depp</span><span class="pill">depp1</span><span class="pill">dh01@61787</span><span class="pill">dkc@61787</span><span class="pill">edward</span><span class="pill">emily</span><span class="pill">fk00001@60643</span><span class="pill">google</span><span class="pill">guanli</span><span class="pill">gybyqp@60823</span><span class="pill">gyhhqp@60823</span><span class="pill">happen1</span><span class="pill">jingjibao1@61243</span><span class="pill">jingjibao2@61243</span><span class="pill">jingjibao_f1@61243</span><span class="pill">joanne</span><span class="pill">jolin</span><span class="pill">kairo</span><span class="pill">kaku</span><span class="pill">kbylkb@60823</span><span class="pill">knox</span><span class="pill">kowei</span><span class="pill">lanbo888@60592</span><span class="pill">lanbo999@60592</span><span class="pill">leon</span><span class="pill">ling</span><span class="pill">malay</span><span class="pill">masaki</span><span class="pill">pika</span><span class="pill">ras</span><span class="pill">risk1</span><span class="pill">risk2</span><span class="pill">ryan</span><span class="pill">sander</span><span class="pill">scott</span><span class="pill">service</span><span class="pill">service2</span><span class="pill">service3</span><span class="pill">service4</span><span class="pill">service5</span><span class="pill">service6</span><span class="pill">servicescore</span><span class="pill">shou</span><span class="pill">simon</span><span class="pill">tommy</span><span class="pill">trevor</span><span class="pill">van</span><span class="pill">weily</span><span class="pill">will</span><span class="pill">yhgy1@60823</span><span class="pill">yhgy2@60823</span><span class="pill">yhgy3@60823</span><span class="pill">yhgy8@60823</span><span class="pill">yoyo01@60643</span><span class="pill">yuri</span><span class="pill">zhiban</span><span class="pill">zhiban2</span><span class="pill">zhiban3</span></div></details>
+<div class="rules"><b>不移植規則</b>（配對前先判，命中即歸 Skip，不列為缺漏）<ol><li><b>agentId = 0</b>：系統層／平台管理帳號，不屬於任何代理，不隨代理搬移</li><li><b>roleId 為 1 或 4</b>：管理员、代理角色這兩種身分不移植</li><li><b>掛在不搬移清單代理底下</b>：代理本身就不搬（代理不搬移清單），其子帳號一併不搬</li><li><b>來源代理已封停且未配對到</b>：代理在來源即為停用狀態，508 找不到屬預期缺席</li></ol></div>
+</div></div>
+</div><script>
+function jobtab(p,btn){
+ document.querySelectorAll('.jtab').forEach(t=>t.classList.remove('active'));
+ btn.classList.add('active');
+ document.querySelectorAll('.job').forEach(j=>j.classList.add('hidden'));
+ document.getElementById('job-'+p).classList.remove('hidden');
+}
+function tab(p,k,btn){
+ const box=document.getElementById('job-'+p);
+ box.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ btn.classList.add('active');
+ box.querySelectorAll('.panel').forEach(pp=>pp.classList.add('hidden'));
+ document.getElementById('panel-'+p+'-'+k).classList.remove('hidden');
+}
+function expandAll(p,k,open){
+ document.querySelectorAll('#panel-'+p+'-'+k+' details').forEach(d=>d.open=open);
+}
+</script></body></html>
